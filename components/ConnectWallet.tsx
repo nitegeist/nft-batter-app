@@ -42,7 +42,7 @@ export const ConnectWallet: FC<React.PropsWithChildren<unknown>> = () => {
 					</button>
 				))}
 			</div>
-			{error && <div>⚠️ {error.message}</div>}
+			{error && <div className={styles.error}>⚠️ {error.message}...</div>}
 		</>
 	);
 };

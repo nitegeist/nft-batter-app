@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;800&family=Space+Mono&display=swap');
+
 .container {
-	padding: 0 2rem;
-	background-color: #282a81;
+	padding: 0 2em;
+	background-color: #edf3ff;
 }
 
 .main {
 	min-height: 100vh;
-	padding: 4rem 0;
-	color: #edf3ff;
+	padding: 4em 0;
+	color: #282a81;
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -25,15 +27,29 @@
 }
 
 .button {
-	padding: 0.5rem;
-	font-size: 1rem;
+	font-family: 'Mulish', sans-serif;
+	border: none;
+	padding: 1em;
+	border-radius: 10px;
+	font-weight: 700;
+	font-size: 1em;
 	cursor: pointer;
+	background-color: #feac9e;
+	color: #7e1401;
+}
+.button:hover {
+	background-color: #7e1401;
+	color: #feac9e;
+	transition: ease-in-out;
+	transition-duration: 200ms;
 }
 
 .title {
-	margin: 15px 0 15px 0;
+	font-family: 'Mulish', sans-serif;
+	font-weight: 700;
+	font-size: 4em;
 	line-height: 1.15;
-	font-size: 4rem;
+	margin: 15px 0 15px 0;
 }
 
 .title,
@@ -42,13 +58,20 @@
 }
 
 .description {
-	margin: 0 0 1rem 0;
+	font-family: 'Space Mono', monospace;
+	color: #5f62ce;
+	margin: 0 0 1em 0;
 	line-height: 1.5;
-	font-size: 1.5rem;
+	font-size: 1.5em;
+}
+
+.error {
+	font-family: 'Space Mono', monospace;
+	color: #5f62ce;
 }
 
 .column {
-	margin: 1rem 0;
+	margin: 1em 0;
 	gap: 0.8rem;
 	display: flex;
 	flex-direction: column;
@@ -56,6 +79,17 @@
 	justify-content: center;
 }
 
+.link {
+	margin-top: 1em;
+	font-family: 'Mulish', sans-serif;
+	font-weight: 400;
+	color: #5f62ce;
+}
+
+.link:hover {
+	text-decoration: underline;
+}
+
 .address {
-	color: #7a8fff;
+	color: #5f62ce;
 }

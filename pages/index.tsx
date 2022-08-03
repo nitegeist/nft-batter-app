@@ -1,11 +1,14 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { useAccount } from 'wagmi';
 import { ConnectWallet, FileUpload } from '../components';
+
 import { FileData } from '../interfaces/file-data';
 import styles from '../styles/Home.module.css';
 const Papa = require('papaparse');
 
 const Home: NextPage = () => {
+	const { address, connector, isConnected } = useAccount();
 	const memberAddresses: unknown[] = [];
 	const parseFile = (file: unknown) => {
 		file
@@ -28,15 +31,23 @@ const Home: NextPage = () => {
 	return (
 		<div className={styles.container}>
 			<Head>
-				<title>NFT Batter</title>
+				<title>NFT Volley</title>
 				<meta name='description' content='A general purpose app to airdrop nfts' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
 			<main className={styles.main}>
-				<h1 className={styles.title}>NFT Batter</h1>
+				<h1 className={styles.title}>NFT Volley</h1>
+				<p className={styles.description}>An efficient multi-sender for ERC721 tokens.</p>
 				<ConnectWallet />
-				<FileUpload parseFile={parseFile} />
+				{isConnected ? <FileUpload parseFile={parseFile} /> : ''}
+				<a
+					target='_blank'
+					rel='noreferrer'
+					className={styles.link}
+					href='https://etherscan.io/address/0x139406b446bccc8aa6b328ff29385a7495d78043'>
+					etherscan &#x1f517;
+				</a>
 			</main>
 		</div>
 	);
