@@ -18,17 +18,15 @@ export const FileUpload: FC<React.PropsWithChildren<Props>> = ({ parseFile }) =>
 	};
 
 	return (
-		<>
-			<form encType='multipart/form-data' className={styles.column}>
-				<label htmlFor='upload-file'>Upload CSV File</label>
-				<input
-					type='file'
-					name='upload-file'
-					id='upload-file'
-					accept='text/csv, application/csv'
-					onChange={handleFileSelect}
-				/>
-			</form>
-		</>
+		<form className={styles.column}>
+			<label htmlFor='upload-file'>Upload CSV File</label>
+			<input
+				type='file'
+				name='upload-file'
+				id='upload-file'
+				accept='text/csv, application/csv'
+				onChange={handleFileSelect}
+			/>
+		</form>
 	);
 };

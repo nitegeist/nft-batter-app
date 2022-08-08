@@ -28,26 +28,38 @@
 
 .button {
 	font-family: 'Mulish', sans-serif;
-	border: none;
-	padding: 1em;
-	border-radius: 10px;
 	font-weight: 700;
-	font-size: 1em;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	margin: 2px 0;
+	border: solid 2px transparent;
+	border-radius: 0.4em;
+	padding: 0.5em 1em;
 	cursor: pointer;
 	background-color: #feac9e;
-	color: #7e1401;
+	color: #2d0700;
+	outline: solid transparent;
 }
-.button:hover {
-	background-color: #7e1401;
+
+.button:hover,
+.button:focus {
+	border-color: currentColor;
+	background-color: #2d0700;
 	color: #feac9e;
 	transition: ease-in-out;
 	transition-duration: 200ms;
 }
 
+.button:active {
+	transform: translateY(1px);
+	filter: saturate(150%);
+}
+
 .title {
 	font-family: 'Mulish', sans-serif;
 	font-weight: 700;
-	font-size: 4em;
+	font-size: 3em;
 	line-height: 1.15;
 	margin: 15px 0 15px 0;
 }
@@ -60,13 +72,15 @@
 .description {
 	font-family: 'Space Mono', monospace;
 	color: #5f62ce;
-	margin: 0 0 1em 0;
+	margin: 0 0 0.5em 0;
 	line-height: 1.5;
 	font-size: 1.5em;
 }
 
 .error {
 	font-family: 'Space Mono', monospace;
+	padding: 1em;
+	text-align: center;
 	color: #5f62ce;
 }
 
@@ -92,4 +106,91 @@
 
 .address {
 	color: #5f62ce;
+}
+
+.customField {
+	position: relative;
+	font-size: 14px;
+	border-top: 20px solid transparent;
+	margin-bottom: 5px;
+	--field-padding: 12px;
+}
+
+.customField input {
+	border: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: #edf3ff;
+	padding: var(--field-padding);
+	border-radius: 3px;
+	width: 250px;
+	outline: none;
+	font-size: 14px;
+}
+
+.customField .placeholder {
+	position: absolute;
+	left: var(--field-padding);
+	width: calc(100% - (var(--field-padding) * 2));
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	top: 22px;
+	line-height: 100%;
+	transform: translateY(-50%);
+	color: #5f62ce;
+	transition: top 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+}
+
+.customField input.dirty + .placeholder,
+.customField input:focus + .placeholder,
+.customField input:not(:placeholder-shown) + .placeholder {
+	top: -10px;
+	font-size: 10px;
+	color: #5f62ce;
+}
+
+.customField .error-message {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 0 8px;
+	font-size: 12px;
+	background: #d30909;
+	color: #fff;
+	height: 24px;
+}
+
+.customField .error-message:empty {
+	opacity: 0;
+}
+
+.customField input {
+	background: none;
+	border: 2px solid #5f62ce;
+	transition: border-color 0.3s ease;
+}
+
+.customField input + .placeholder {
+	left: 8px;
+	padding: 0 5px;
+}
+
+.customField input.dirty,
+.customField input:not(:placeholder-shown),
+.customField input:focus {
+	border-color: #5f62ce;
+	transition-delay: 0.1s;
+}
+
+.customField input.dirty + .placeholder,
+.customField input:not(:placeholder-shown) + .placeholder,
+.customField input:focus + .placeholder {
+	top: 0;
+	font-size: 10px;
+	color: #5f62ce;
+	background: #edf3ff;
+	width: auto;
 }

@@ -1,15 +1,17 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useAccount } from 'wagmi';
-import { ConnectWallet, FileUpload } from '../components';
-
+import { Account, ConnectWallet, FileUpload } from '../components';
+import { Approve } from '../components/Approve';
+import { useIsMounted } from '../hooks';
 import { FileData } from '../interfaces/file-data';
 import styles from '../styles/Home.module.css';
 const Papa = require('papaparse');
 
 const Home: NextPage = () => {
-	const { address, connector, isConnected } = useAccount();
-	const memberAddresses: unknown[] = [];
+	const isMounted = useIsMounted();
+	const { isConnected } = useAccount();
+	const recipients: unknown[] = [];
 	const parseFile = (file: unknown) => {
 		file
 			? Papa.parse(file, {
@@ -19,10 +21,11 @@ const Home: NextPage = () => {
 						results.data.map((el) => {
 							Object.entries(el).map(([key, value]) => {
 								if (key === 'memberAddress' || key === 'address') {
-									memberAddresses.push(value);
+									recipients.push(value);
 								}
 							});
 						});
+						console.log(recipients);
 					},
 					error: (error: unknown) => console.error(error),
 			  })
@@ -32,15 +35,21 @@ const Home: NextPage = () => {
 		<div className={styles.container}>
 			<Head>
 				<title>NFT Volley</title>
-				<meta name='description' content='A general purpose app to airdrop nfts' />
+				<meta name='description' content='An efficient multi-sender for ERC721 tokens' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
 			<main className={styles.main}>
 				<h1 className={styles.title}>NFT Volley</h1>
 				<p className={styles.description}>An efficient multi-sender for ERC721 tokens.</p>
-				<ConnectWallet />
-				{isConnected ? <FileUpload parseFile={parseFile} /> : ''}
+				{isMounted && isConnected && (
+					<>
+						<Account />
+						<FileUpload parseFile={parseFile} />
+						<Approve />
+					</>
+				)}
+				{!isConnected && <ConnectWallet />}
 				<a
 					target='_blank'
 					rel='noreferrer'
