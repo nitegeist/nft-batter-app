@@ -19,14 +19,16 @@ export const FileUpload: FC<React.PropsWithChildren<Props>> = ({ parseFile }) =>
 
 	return (
 		<form className={styles.column}>
-			<label htmlFor='upload-file'>Upload CSV File</label>
-			<input
-				type='file'
-				name='upload-file'
-				id='upload-file'
-				accept='text/csv, application/csv'
-				onChange={handleFileSelect}
-			/>
+			<div className={styles.customField}>
+				<label htmlFor='upload-file'>Upload CSV File</label>
+				<input
+					type='file'
+					name='upload-file'
+					id='upload-file'
+					accept='text/csv, application/csv'
+					onChange={handleFileSelect}
+				/>
+			</div>
 		</form>
 	);
 };

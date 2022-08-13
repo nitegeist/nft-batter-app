@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import { FC, useState } from 'react';
 import styles from '../styles/Home.module.css';
 
 export const Approve: FC<React.PropsWithChildren<unknown>> = () => {
-	const [approve, setApprove] = React.useState('');
+	const [approve, setApprove] = useState('');
 	const handleApprove = () => {
 		console.log(approve);
 	};
@@ -13,16 +13,16 @@ export const Approve: FC<React.PropsWithChildren<unknown>> = () => {
 				e.preventDefault();
 				handleApprove();
 			}}>
-			<label className={styles.customField}>
+			<div className={styles.customField}>
+				<label>Approval Contract Address</label>
 				<input
 					name='approve-address'
 					id='approve-address'
-					placeholder=' '
+					placeholder='0x70997970c51812dc3a010c7d01b50e0d17dc79c8'
 					onChange={(e) => setApprove(e.target.value)}
 					value={approve}
 				/>
-				<span className={styles.placeholder}>Approval Contract Address</span>
-			</label>
+			</div>
 			<button className={styles.button} disabled={!approve}>
 				Approve
 			</button>
