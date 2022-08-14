@@ -8,7 +8,6 @@ specifiers:
   eslint-config-next: 12.2.3
   ethers: ^5.6.9
   next: 12.2.3
-  papaparse: ^5.3.2
   react: 18.2.0
   react-dom: 18.2.0
   typescript: 4.7.4
@@ -17,7 +16,6 @@ specifiers:
 dependencies:
   ethers: 5.6.9
   next: 12.2.3_biqbaboplfbrettd7655fr4n2y
-  papaparse: 5.3.2
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   wagmi: 0.6.1_um4cugg2i3ywhvigsmvsir7hgy
@@ -2898,10 +2896,6 @@ packages:
   /p-try/2.2.0:
     resolution: {integrity: sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==}
     engines: {node: '>=6'}
-    dev: false
-
-  /papaparse/5.3.2:
-    resolution: {integrity: sha512-6dNZu0Ki+gyV0eBsFKJhYr+MdQYAzFUGlBMNj3GNrmHxmz1lfRa24CjFObPXtjcetlOv5Ad299MhIK0znp3afw==}
     dev: false
 
   /parent-module/1.0.1:

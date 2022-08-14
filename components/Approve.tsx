@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css';
 export const Approve: FC<React.PropsWithChildren<unknown>> = () => {
 	const [approve, setApprove] = useState('');
 	const handleApprove = () => {
-		console.log(approve);
+		console.log({ approve });
 	};
 	return (
 		<form
@@ -14,7 +14,7 @@ export const Approve: FC<React.PropsWithChildren<unknown>> = () => {
 				handleApprove();
 			}}>
 			<div className={styles.customField}>
-				<label>Approval Contract Address</label>
+				<label>Contract Address for Approval</label>
 				<input
 					name='approve-address'
 					id='approve-address'
