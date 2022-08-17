@@ -2,15 +2,17 @@ import { FC } from 'react';
 import styles from '../styles/Home.module.css';
 
 interface Props {
-	recipients: string[];
-	tokens: string[];
+	setRecipients: Function;
+	setTokenIds: Function;
 }
 
-export const TextField: FC<React.PropsWithChildren<Props>> = ({ recipients, tokens }) => {
+export const TextField: FC<React.PropsWithChildren<Props>> = ({ setRecipients, setTokenIds }) => {
 	const handleInputChange = (value: string) => {
 		const values = value.split(',').map((val) => val.replace(/[^a-zA-Z0-9 ]/g, '').trim());
-		recipients = values.filter((val) => val.includes('0x'));
-		tokens = values.filter((val) => !val.includes('0x'));
+		const recipients = values.filter((val) => val.includes('0x'));
+		const tokens = values.filter((val) => !val.includes('0x'));
+		setRecipients(recipients);
+		setTokenIds(tokens);
 		console.log({ values, recipients, tokens });
 	};
 	return (
