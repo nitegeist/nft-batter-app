@@ -110,6 +110,8 @@
 
 .customField {
 	--input-border: #5f62ce;
+	--input-value: #282a81;
+	--input-background: #edf3ff;
 	--input-focus-h: 238;
 	--input-focus-s: 50%;
 	--input-focus-l: 59%;
@@ -132,14 +134,15 @@
 	font-size: minmax(16px, 1em);
 	font-family: inherit;
 	padding: 0.25em 0.5em;
-	background-color: #edf3ff;
+	background-color: var(--input-background);
 	border: 2px solid var(--input-border);
+	color: var(--input-value);
 	border-radius: 4px;
 	transition: 180ms box-shadow ease-in-out;
 }
 .customField input:focus,
 .customField textarea:focus {
-	border-color: #5f62ce;
+	border-color: var(--input-border);
 	box-shadow: 0 0 0 2px hsla(238, 53%, 42%, 0.8);
 	outline: 2px solid transparent;
 }
