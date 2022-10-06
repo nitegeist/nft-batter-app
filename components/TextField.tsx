@@ -9,11 +9,11 @@ interface Props {
 export const TextField: FC<React.PropsWithChildren<Props>> = ({ setRecipients, setTokenIds }) => {
 	const handleInputChange = (value: string) => {
 		const values = value.split(',').map((val) => val.replace(/[^a-zA-Z0-9 ]/g, '').trim());
-		const recipients = values.filter((val) => val.includes('0x'));
-		const tokens = values.filter((val) => !val.includes('0x'));
+		const recipients = values.filter((val) => val.includes('0x') && val !== '');
+		const tokens = values.filter((val) => !val.includes('0x') && val !== '');
 		setRecipients(recipients);
 		setTokenIds(tokens);
-		console.log({ values, recipients, tokens });
+		console.log({ recipients, tokens });
 	};
 	return (
 		<form className={styles.column}>
