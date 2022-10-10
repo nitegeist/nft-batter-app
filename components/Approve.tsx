@@ -6,16 +6,21 @@ import { erc721ABI } from '../web3/erc721ABI';
 
 export const Approve: FC<React.PropsWithChildren<unknown>> = () => {
 	const [approveAddress, setApproveAddress] = useState<string>('');
-	const debouncedApprveAddress = useDebounce(approveAddress, 500);
-
-	const { config } = usePrepareContractWrite({
-		addressOrName: '0x1dfe7Ca09e99d10835Bf73044a23B73Fc20623DF',
+	const debouncedApproveAddress = useDebounce(approveAddress, 500);
+	const address = '0xFBA3912Ca04dd458c843e2EE08967fC04f3579c2';
+	console.log({ address, erc721ABI });
+	const {
+		config,
+		error: prepareError,
+		isError: isPrepareError,
+	} = usePrepareContractWrite({
+		addressOrName: address,
 		contractInterface: erc721ABI,
 		functionName: 'setApprovalForAll',
-		args: [parseInt(debouncedApprveAddress), true],
-		enabled: Boolean(debouncedApprveAddress),
+		args: [parseInt(debouncedApproveAddress), true],
+		enabled: Boolean(debouncedApproveAddress),
 	});
-	const { data, write } = useContractWrite(config);
+	const { data, error, isError, write } = useContractWrite(config);
 	const { isLoading, isSuccess } = useWaitForTransaction({
 		hash: data?.hash,
 	});
@@ -25,8 +30,12 @@ export const Approve: FC<React.PropsWithChildren<unknown>> = () => {
 			className={styles.column}
 			onSubmit={(e) => {
 				e.preventDefault();
-				write?.();
-				console.log({ data });
+				try {
+					write?.();
+					console.log({ data });
+				} catch (error) {
+					console.error(error);
+				}
 			}}>
 			<div className={styles.customField}>
 				<label>Contract address for approval</label>
@@ -34,6 +43,7 @@ export const Approve: FC<React.PropsWithChildren<unknown>> = () => {
 					name='approval-address'
 					id='approval-address'
 					placeholder='0x70997970c51812dc3a010c7d01b50e0d17dc79c8'
+					value={approveAddress}
 					onChange={(e) => setApproveAddress(e.target.value)}
 				/>
 			</div>
@@ -48,6 +58,7 @@ export const Approve: FC<React.PropsWithChildren<unknown>> = () => {
 					</div>
 				</div>
 			)}
+			{(isPrepareError || isError) && <div>⚠️ Error: {(prepareError || error)?.message}</div>}
 		</form>
 	);
 };

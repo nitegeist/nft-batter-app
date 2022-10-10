@@ -51,6 +51,13 @@
 	transition-duration: 200ms;
 }
 
+.button:disabled,
+.button[disabled] {
+	border: 2px solid #999999;
+	background-color: #cccccc;
+	color: #666666;
+}
+
 .button:active {
 	transform: translateY(1px);
 	filter: saturate(150%);

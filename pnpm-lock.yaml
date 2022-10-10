@@ -11,14 +11,14 @@ specifiers:
   react: 18.2.0
   react-dom: 18.2.0
   typescript: 4.7.4
-  wagmi: ^0.6.6
+  wagmi: ^0.6.8
 
 dependencies:
   ethers: 5.7.1
   next: 12.2.5_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  wagmi: 0.6.6_nznuxirfauibn2fjde2ghjonky
+  wagmi: 0.6.8_nznuxirfauibn2fjde2ghjonky
 
 devDependencies:
   '@types/node': 18.7.13
@@ -901,8 +901,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@wagmi/core/0.5.6_tfiwhtsxmbuzlsdgmvivdffaee:
-    resolution: {integrity: sha512-ZGvMVpcl5iN/fXqYxh+lngs980I4R/bMEMVcYjXw5PA67PB1I53paapsPUBt+0ID2QIShyyxZ/qKmhg7FstNWA==}
+  /@wagmi/core/0.5.8_tfiwhtsxmbuzlsdgmvivdffaee:
+    resolution: {integrity: sha512-1mABf1bXyn3AOHyQkios4FTGqoARa8y1tf7GMH6t1c7q0nAMSbpXoTDdjEidUHy8qhWoG0y3Ez4PjCi8WQnmMg==}
     peerDependencies:
       '@coinbase/wallet-sdk': '>=3.3.0'
       '@walletconnect/ethereum-provider': '>=1.7.5'
@@ -917,7 +917,7 @@ packages:
       '@walletconnect/ethereum-provider': 1.8.0
       ethers: 5.7.1
       eventemitter3: 4.0.7
-      zustand: 4.1.1_react@18.2.0
+      zustand: 4.1.2_react@18.2.0
     transitivePeerDependencies:
       - immer
       - react
@@ -3729,8 +3729,8 @@ packages:
     resolution: {integrity: sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==}
     dev: true
 
-  /wagmi/0.6.6_nznuxirfauibn2fjde2ghjonky:
-    resolution: {integrity: sha512-bLocnHhqmhzbkx5kSbMSIx2Y61NxylQfV+aM7HCtFKV9S+F3+hrGB4QrkD6/fjTCQVsBqdddLHjlrIYmYfCvYg==}
+  /wagmi/0.6.8_nznuxirfauibn2fjde2ghjonky:
+    resolution: {integrity: sha512-pIOn7I56KPfdPQ1WRIWzWnpC8eJZm1V25Rcn5fbgOJ2eV3kjGNchnIub/ERY1VMKywxkCAfgXfn2D/tqwCJsWw==}
     peerDependencies:
       ethers: '>=5.5.1'
       react: '>=17.0.0'
@@ -3739,7 +3739,7 @@ packages:
       '@tanstack/query-sync-storage-persister': 4.3.8_omgmmzfyinj26wohtj7wh63kqm
       '@tanstack/react-query': 4.3.8_biqbaboplfbrettd7655fr4n2y
       '@tanstack/react-query-persist-client': 4.3.8_omgmmzfyinj26wohtj7wh63kqm
-      '@wagmi/core': 0.5.6_tfiwhtsxmbuzlsdgmvivdffaee
+      '@wagmi/core': 0.5.8_tfiwhtsxmbuzlsdgmvivdffaee
       '@walletconnect/ethereum-provider': 1.8.0
       ethers: 5.7.1
       react: 18.2.0
@@ -3928,8 +3928,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /zustand/4.1.1_react@18.2.0:
-    resolution: {integrity: sha512-h4F3WMqsZgvvaE0n3lThx4MM81Ls9xebjvrABNzf5+jb3/03YjNTSgZXeyrvXDArMeV9untvWXRw1tY+ntPYbA==}
+  /zustand/4.1.2_react@18.2.0:
+    resolution: {integrity: sha512-gcRaKchcxFPbImrBb/BKgujOhHhik9YhVpIeP87ETT7uokEe2Szu7KkuZ9ghjtD+/KKkcrRNktR2AiLXPIbKIQ==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       immer: '>=9.0'
